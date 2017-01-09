@@ -125,9 +125,7 @@ final class App
             
             // リクエストから実行対象アクションをセットする
             $action_name = $this->request->getActionName();
-            var_dump(3);
             if (!method_exists($this->_controller, $action_name)) {
-                var_dump($controller_name);
                 throw new \Simplight\Exception('ページが見つかりませんでした<br>URLを確かめてください', 'ページが見つかりません', STATUS_CODE_NOT_FOUND);
             }
             // コントローラー処理前にPRE_HOOKを実行する
