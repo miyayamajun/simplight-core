@@ -1,0 +1,21 @@
+#!/bin/sh
+
+if [ -f $1 -o -f $2 ]; then
+    echo "Usage: $0 create [( databases | tables | indexes | model | controller | hook )]"
+    exit
+fi
+
+DIR=$(cd $(dirname $0); pwd)
+
+case $1 in
+    create )
+        case $2 in
+            databases ) 
+                php $DIR/../php/create_db.php ;;
+            tables )
+                php $DIR/../php/create_table.php ;;
+            indexes )
+                php $DIR/../php/add_indexes.php ;;
+        esac
+esac
+
